@@ -5,7 +5,7 @@ from omdb_client import OMDBClient
 
 logger = get_logger()
 
-mcp = FastMCP("TMDB MCP Server", version="0.1.0")
+mcp = FastMCP("Film Finder MCP Server", version="0.1.0")
 logger.info(f"FastMCP app created")
 tmdb_client = TMDBClient()
 logger.info(f"TMDB client created")
