@@ -1,7 +1,7 @@
 from fastmcp.server import FastMCP
-from tmdb_client import TMDBClient
-from base_config import get_logger
-from omdb_client import OMDBClient
+from tools.tmdb_client import TMDBClient
+from tools.base_config import get_logger
+from tools.omdb_client import OMDBClient
 
 logger = get_logger()
 
