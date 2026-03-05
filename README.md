@@ -26,9 +26,9 @@ MCP allows AI assistants (like Claude in Cursor) to access external tools and da
 ```json
 {
   "mcpServers": {
-    "tmdb": {
+    "film-finder": {
       "command": "uv",
-      "args": ["run", "--directory", "/path/to/tmdb-mcp", "python", "server.py"],
+      "args": ["run", "--directory", "/path/to/film-finder-mcp/tmdb-mcp", "python", "src/server.py"],
       "env": {
         "TMDB_API_KEY": "your_tmdb_key",
         "OMDB_API_KEY": "your_omdb_key"
@@ -48,7 +48,7 @@ uv sync
 Use MCP Inspector for testing:
 
 ```bash
-npx @modelcontextprotocol/inspector uv run python server.py
+npx @modelcontextprotocol/inspector uv run python src/server.py
 ```
 
 Then open http://localhost:5173 (or the URL shown in terminal).
@@ -123,18 +123,22 @@ The AI will automatically use your MCP tools to fetch and analyze movie data.
 - Check that API keys are set in `.cursor/mcp.json`
 - Verify `uv sync` ran successfully
 - Look for errors in terminal logs
-- Run from terminal `uv run python server.py` and check for logging.
+- Run from terminal `uv run python src/server.py` and check for logging.
 
 ## Project Structure
 
 ```
-tmdb-mcp/
-├── server.py           # Main MCP server
-├── tmdb_client.py      # TMDB API client with caching
-├── omdb_client.py      # OMDB API client
-├── base_config.py      # Configuration and logging
-├── pyproject.toml      # Dependencies
-└── README.md           # You are here
+film-finder-mcp/
+├── src/
+│   ├── server.py           # Main MCP server
+│   └── tools/
+│       ├── tmdb_client.py  # TMDB API client with caching
+│       ├── omdb_client.py  # OMDB API client
+│       └── base_config.py  # Configuration and logging
+├── test_my_http_client.py  # Test file
+├── pyproject.toml           # Dependencies
+├── images/                  # Screenshots
+└── README.md                # You are here
 ```
 
 ## Notes
